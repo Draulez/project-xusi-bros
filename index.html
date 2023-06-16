@@ -21,16 +21,65 @@
             text-decoration: none;
             font-size: 17px;
         }
-        .navbar a:hover {
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn  {
             background-color: #ddd;
             color: black;
         }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            }
     </style>
 </head>
 <body>
     <div class="navbar">
         <a href="#inicio">Inicio</a>
         <a href="#acerca-de">Acerca de</a>
+        <div class="dropdown">
+            <button class="dropbtn">Servicios</button>
+            <div class="dropdown-content">
+                <a href="#servicio1">Servicio 1</a>
+                <a href="#servicio2">Servicio 2</a>
+                <a href="#servicio3">Servicio 3</a>
+            </div>
+        </div>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
     </div>
@@ -39,6 +88,20 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
     <!-- Más contenido... -->
-
+    <script>
+        // Código JavaScript opcional para cerrar el menú desplegable cuando se hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
