@@ -22,7 +22,9 @@ ar el manejo y agregar una interfaz visualmente amigable se hace uso de DBeaver 
 o la interfaz que nos proporciona.
 Link de descarga: https://dbeaver.io/download/
 Para agregar la conexion en DBever, arriba a la izquierda de la aplicación sale la opción de agregar nueva conexion. Se indica el uso de MariaDB y se rellenan las credenciales.
-Nombre: "xusi-bros" Usuario: "root" Contraseña: "xusi"
+Nombre: "xusi-bros" Usuario: "root" Contraseña: "xusi".
+El proyecto cuenta con un directorio DataBase que contiene el archivo "Scripts.sql" el cual contendrá todas las querys para inicializar, añadir, modificar... todos las tablas y su contenido.
+Se deberan ejecutar todos para asegurar la compatibililidad entre los diferentes colaboradores.
 
 En principio con esto ya podemos entrar a la parte del código.
 
@@ -30,8 +32,10 @@ En principio con esto ya podemos entrar a la parte del código.
 
 Para crear el backend de la aplicación que sea capaz de manejar las distintas peticiones http que puedan ser mandadas en la web se crea un servidor sencillo y básico mediante la librería de JavaScript Express.js que en principio será
 agregada al proyecto de forma local mediante el comando npm install mencionado al principio.
-Este servidor hace uso del puerto 3000 para manejar las peticiones. Además se ha insertado en el código privilegios para el puerto 5500 que será el que hace uso la extension de LiveServer
+Este servidor hace uso del puerto 3000 para manejar las peticiones. Además, se ha insertado en el código privilegios para el puerto 5500, que será el que hace uso la extension de LiveServer
 de Visual Studio Code para abrir un tuenl entre el código y el navegador.
+
+IMPORTANTE: Sera necesario que cada vez que queramos hacer pruebas en la página, debemos iniciar el servidor express con "node server.js" en el directorio del proyecto
 
 
 
