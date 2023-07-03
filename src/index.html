@@ -8,44 +8,85 @@
 	<!-- Bootstrap CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="styles.css">
-	<script src="index.js"></script>
 	
 </head>
 <body>
-	<div class="navbar">
-		<a href="#inicio">Inicio</a>
-		<a href="#acerca-de">Acerca de</a>
-		<div class="dropdown">
-			<button class="dropbtn">Servicios</button>
-			<div class="dropdown-content">
-				<a href="#servicio1">Servicio 1</a>
-				<a href="#servicio2">Servicio 2</a>
-				<a href="#servicio3">Servicio 3</a>
+	<!-- NavBar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+		  <a class="navbar-brand" href="#">Pizzería</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Inicio</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Menú</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Ofertas</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Pedidos</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Contacto</a>
+			  </li>
+			  <li class="nav-item ">
+				<a class="no_need_log nav-link" herf="#" data-bs-target="modal" onclick="showLogin()">Iniciar sesión / Registrarse</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="need_log nav-link" href="/src/miCuenta.html">Mi cuenta</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+
+	<!-- Aqui se encuentra la ventana emergente de login -->
+	<div class="modal" id="login">
+		<div class="modal-dialog">
+			<div class="modal-content" id="login-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Inicio de sesión</h4>
+					<button type="button" class="close" onclick="hideLogin()">&times;</button>
+				</div>
+
+				<div class="modal-body m-5">
+					<form>
+					  <div class="form-group">
+						<label for="username">Usuario:</label>
+						<input type="text" class="form-control" id="username" name="username" required>
+					  </div>
+					  
+					  <div class="form-group">
+						<label for="password">Contraseña:</label>
+						<input type="password" class="form-control" id="password" name="password" required><br>
+					  </div>
+
+					  <div class="text-center">
+						<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+						<button class="btn btn-secondary">Registrarse</button>
+					  </div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" onclick="hideLogin()">Cerrar</button>
+				</div>
 			</div>
 		</div>
-		
-		<a href="#contacto">Contacto</a>
 	</div>
-	<!-- Contenido de la página -->
-	<h1>Bienvenido a mi página</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-	<!-- Más contenido... -->
-	<script>
-		// Código JavaScript opcional para cerrar el menú desplegable cuando se hace clic fuera de él
-		window.onclick = function(event) {
-			if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.style.display === "block") {
-						openDropdown.style.display = "none";
-					}
-				}
-			}
-		}
-	</script>
+	
+	<!-- Aquí se actualizará el contenido dinámicamente -->
+	  <div id="content">
+	  </div>
+	<script src="index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

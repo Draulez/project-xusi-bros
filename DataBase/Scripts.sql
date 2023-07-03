@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nombre` VARCHAR(50) NOT NULL,
   `apellido` VARCHAR(50) NOT NULL,
   `correo` INT(11) UNIQUE,
+  'password' INt(16) NOT NULL,
   PRIMARY KEY (`id`)
 );
 

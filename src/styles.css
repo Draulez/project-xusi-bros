@@ -64,3 +64,48 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.need_log{
+    display: none;
+}
+
+.no_need_log{
+    display: none;
+}
+
+.visible{
+    display: block;
+}
+
+.login-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+
+.modal-content {
+border-radius: 20px;
+}
+
+
+.fade-in {
+animation: fadeInAnimation 1s;
+animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
