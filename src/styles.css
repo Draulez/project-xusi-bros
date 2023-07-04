@@ -74,7 +74,7 @@ body {
 }
 
 .visible{
-    display: block;
+    display: block !important; 
 }
 
 .login-container {
@@ -108,4 +108,9 @@ from {
 to {
     opacity: 1;
 }
+}
+
+#errorLogin{
+    display: none;
+    color: red;
 }

@@ -14,16 +14,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nombre` VARCHAR(50) NOT NULL,
   `apellido` VARCHAR(50) NOT NULL,
   `correo` INT(11) UNIQUE,
-  'password' INt(16) NOT NULL,
+  'password' INT(16) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
 -- ----------------------------------------------
 -- Inserción de datos
 -- ----------------------------------------------
-INSERT INTO `nombre_tabla` (`nombre`, `apellido`, `edad`) VALUES
-  ('John', 'Doe', 30),
-  ('Jane', 'Smith', 25);
+INSERT INTO `nombre_tabla` (`nombre`, `apellidos`, `correo`, `password`) VALUES
+  ('John', 'Doe', 'ejemplo@gmail.com', 1234),
+  ('Jane', 'Smith', 'ejemplo2@gmail.com', 1234);
 
 -- ----------------------------------------------
 -- Consulta de datos

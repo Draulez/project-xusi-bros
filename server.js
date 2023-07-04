@@ -20,6 +20,7 @@ connection.connect((error) => {
   console.log('Conexión exitosa a la base de datos');
 });
 
+// Código necesario para dar permiso al port que utiliza liverserver de poder mandar request.
 const corsOptions = {
   origin: ['http://127.0.0.1:5500'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -33,6 +34,12 @@ app.use((req, res, next) => {
   req.db = connection;
   next();
 });
+
+// Analizar solicitudes con contenido de tipo application/json
+app.use(express.json());
+
+// Analizar solicitudes con contenido de tipo application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }));
 
 // Resto del código del servidor...
 
@@ -52,6 +59,56 @@ app.get('/usuarios', (req, res) => {
       res.status(500).json({ error: 'Error al obtener los usuarios' });
     } else {
       res.json(results);
+    }
+  });
+});
+// Manejar la solicitud de envío del formulario del login
+app.post('/login', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  let sql = "SELECT * FROM usuarios WHERE nombre = ? AND password = ?";
+  const values = [username, password];
+
+  connection.query(sql, values, (error, results) => {
+    if (error) {
+      console.error('Error al obtener los usuarios:', error);
+      res.status(500).json({ error: 'Error al obtener los usuarios' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+// Manejar la solicitud de envío del formulario del login
+app.post('/signUp', (req, res) => {
+  const username = req.body.username;
+  const apellidos = req.body.apellidos;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  let sql = "INSERT INTO usuarios (nombre, apellidos, correo, password) VALUES (?,?,?,?)";
+  const values = [username, apellidos, email, password];
+  
+  connection.query(sql, values, (error, results) => {
+    if (error) {
+      if (error.code === 'ER_DUP_ENTRY')
+      {
+        res.status(400).json({ error: 'El nombre de usuario o correo electrónico ya existe' });
+      }
+      else
+      {
+        console.error('Error al insertar nuevo usuario:', error);
+        res.status(500).json({ error: 'Error al insertar nuevo usuario, nombre de usuario ya existente.' });
+      }
+    } else {
+      const response = {
+        username: username,
+        password: password,
+        msg: "Usuario registrado correctamente."
+      }
+
+      res.json(response);
     }
   });
 });
