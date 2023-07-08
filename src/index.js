@@ -188,7 +188,7 @@ if (localStorage.getItem("usuario") === null || localStorage.getItem("password")
               msgErrorSignUp.innerHTML = "Error durante el registro";
               break;
           }
-                 
+          
           
           throw new Error(`HTTP error! status ${response.status}`);
         }
