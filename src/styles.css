@@ -1,6 +1,8 @@
 body {
     margin: 1;
     padding: 0;
+    background-color: #5a6166;
+
 }
 
 .navbar {
@@ -88,7 +90,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-  }
+}
 
 
 .modal-content {
@@ -118,7 +120,7 @@ to {
 /*Contenido*/
 
 .contenido {
-    background-color: #5a6166;
+    background-color: #464c50;
     color: #fff;
     padding: 50px 20px;
     
