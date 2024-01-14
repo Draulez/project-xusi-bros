@@ -114,3 +114,17 @@ to {
     display: none;
     color: red;
 }
+
+/*Contenido*/
+
+.contenido {
+    background-color: #5a6166;
+    color: #fff;
+    padding: 50px 20px;
+    
+}
+
+.contenido .contenido-seccion{
+    max-width: 1100px;
+    margin: auto;
+}
